@@ -2,7 +2,6 @@
 pragma solidity ^0.8.13;
 
 import {ERC721} from "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
-import {Ownable} from "lib/openzeppelin-contracts/contracts/access/Ownable.sol";
 
 /**
  * 2. 發行總量10張的SBT。
@@ -17,7 +16,7 @@ contract SBT is ERC721 {
         _mint(_to, _tokenId);
     }
     
-    function transferFrom(address from, address to, uint256 tokenId) public override {
+    function transferFrom(address, address, uint256) public pure override {
         revert("Token transfer is not allowed");
     }
 }
