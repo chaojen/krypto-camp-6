@@ -6,7 +6,7 @@ import "src/week1/Quiz1.sol";
 
 contract FTTest is Test {
     FT ft;
-    
+
     function setUp() external {
         ft = new FT();
     }

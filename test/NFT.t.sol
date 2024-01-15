@@ -6,8 +6,9 @@ import "src/NFT.sol";
 
 contract NFTTest is Test {
     event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+
     NFT nft;
-    
+
     function setUp() external {
         nft = new NFT();
     }
@@ -26,14 +27,13 @@ contract NFTTest is Test {
         address user = vm.addr(userPrivateKey);
         vm.broadcast(userPrivateKey);
         console.log(user);
-        
+
         vm.expectEmit(true, true, true, true);
         emit Transfer(address(0), user, tokenId);
-        
+
         // act
         nft.mint(user, tokenId);
-        
-        
+
         // assert
         assertEq(nft.ownerOf(tokenId), user);
         assertEq(nft.balanceOf(user), 1);
