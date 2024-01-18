@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "src/week1/Quiz1.sol";
+import "src/week1/FT.sol";
 
 contract FTTest is Test {
     FT ft;
