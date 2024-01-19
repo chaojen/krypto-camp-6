@@ -13,8 +13,8 @@ contract SBT is ERC721 {
     /**
      * 計算鑄造定量後不可超出總供應量
      */
-    modifier availableMint(uint256 amount) {
-        require(counter + amount <= totalSupply, "Sold Out");
+    modifier availableMint(uint256 _amount) {
+        require(counter + _amount <= totalSupply, "Sold Out");
         _;
     }
 
