@@ -22,7 +22,7 @@ contract BlindBox is ERC721, Ownable {
 
     uint256 public totalSupply = 4;
     Counters.Counter public counter;
-    
+
     bool private isOpened;
 
     constructor(address _owner) ERC721("BlindBox", "BlindBox") Ownable(_owner) {}

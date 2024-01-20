@@ -8,7 +8,6 @@ import {Counters} from "src/utils/Counters.sol";
  * Soulbound Token
  */
 contract SBT is ERC721 {
-
     using Counters for Counters.Counter;
 
     uint256 public totalSupply = 10;
