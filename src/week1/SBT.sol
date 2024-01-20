@@ -2,19 +2,23 @@
 pragma solidity ^0.8.20;
 
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {Counters} from "src/utils/Counters.sol";
 
 /**
  * Soulbound Token
  */
 contract SBT is ERC721 {
+
+    using Counters for Counters.Counter;
+
     uint256 public totalSupply = 10;
-    uint256 public counter = 0;
+    Counters.Counter public counter;
 
     /**
      * 計算鑄造定量後不可超出總供應量
      */
     modifier availableMint(uint256 _amount) {
-        require(counter + _amount <= totalSupply, "Sold Out");
+        require(counter.current() + _amount <= totalSupply, "Sold Out");
         _;
     }
 
@@ -22,8 +26,8 @@ contract SBT is ERC721 {
 
     function mint(address _to, uint256 _amount) external availableMint(_amount) {
         for (uint256 index = 0; index < _amount; index++) {
-            _mint(_to, counter);
-            counter++;
+            _mint(_to, counter.current());
+            counter.increment();
         }
     }
 
