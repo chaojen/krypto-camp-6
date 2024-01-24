@@ -12,3 +12,9 @@ docs/
 
 # Dotenv file
 .env
+
+# Node.js Dependency directories
+node_modules/
+
+# generate output
+dist
